@@ -1,0 +1,32 @@
+piVersion: v1
+kind: ConfigMap
+metadata:
+  name: prometheus-alert-rules
+  namespace : monitoring
+data:
+  alert.rules: |-
+    ## alert.rules ##
+
+    #
+    # CPU Alerts
+    #
+    ALERT HighCPU
+      IF ((sum(node_cpu{mode=~"user|nice|system|irq|softirq|steal|idle|iowait"}) by (instance, job)) - ( sum(node_cpu{mode=~"idle|iowait"}) by (instance,job) )   )   /  (sum(node_cpu{mode=~"user|nice|system|irq|softirq|steal|idle|iowait"}) by (instance, job)) * 100 > 95
+      FOR 10m
+      LABELS { service = "backend" }
+      ANNOTATIONS {
+        summary = "High CPU Usage",
+        description = "This machine  has really high CPU usage for over 10m",
+      }
+
+    #
+    # DNS Lookup failures
+    #
+    ALERT DNSLookupFailureFromPrometheus
+      IF prometheus_dns_sd_lookup_failures_total > 5
+      FOR 1m
+      LABELS { service = "frontend" }
+      ANNOTATIONS {
+        summary = "Prometheus reported over 5 DNS lookup failure",
+        description = "The prometheus unit reported that it failed to query the DNS.  Look at the kube-dns to see if it is having any problems",
+      }
