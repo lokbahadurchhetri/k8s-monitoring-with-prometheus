@@ -19,4 +19,11 @@ and mounted it to the prometheus pod. The data scraped will then be loaded to Az
 In case of pod failure. A new pod will be created and the Azurefilestorage volume will be mounted to
 the new pod.
 
+we will need a storage account in Azure in same region and subnet on which the k8s-cluster exist.
+Then we can create a secret by using below command:
+# kubectl create secret generic azure-secret --from-literal=azurestorageaccountname=<...> --from-literal=azurestorageaccountkey=<...>
+
+This secret is later used to authenticate and mount the Azurefilestorage to the prometheus pod.
+
+
 Note : The above code is still in progress. (The alert manager is yet to be configured)
