@@ -7,7 +7,7 @@ we can reffer the below links and modified the .yaml file according to our requi
 You can find the full tutorial from below links :
  1. https://devopscube.com/setup-prometheus-monitoring-on-kubernetes
  2. http://blog.wercker.com/how-to-setup-alerts-on-prometheus
-
+ 3. https://github.com/kubernetes/examples/tree/master/staging/volumes/azure_file#how-to-use-it 
 Statefull Prometheus deployment:
 --------------------------------
 If prometheus is using local storage for scraped data, the data is lost when the pod gets killed.
