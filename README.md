@@ -5,9 +5,8 @@ Configuration files for setting up prometheus monitoring on Kubernetes cluster.
 we can reffer the below links and modified the .yaml file according to our requirements.
 
 You can find the full tutorial from below links :
-
-1.https://devopscube.com/setup-prometheus-monitoring-on-kubernetes
-2.http://blog.wercker.com/how-to-setup-alerts-on-prometheus
+ 1. https://devopscube.com/setup-prometheus-monitoring-on-kubernetes
+ 2. http://blog.wercker.com/how-to-setup-alerts-on-prometheus
 
 Statefull Prometheus deployment:
 --------------------------------
@@ -20,13 +19,13 @@ In case of pod failure. A new pod will be created and the Azurefilestorage volum
 the new pod.
 
 Requirements:
-1. cifs-utils.
+ 1. cifs-utils.
  we can use the below command to install 'cifs-utils' in Ubuntu.
- * $sudo apt-get install cifs-utils
+  * $sudo apt-get install cifs-utils
 
 we will need a storage account in Azure in same region and subnet on which the k8s-cluster exist.
 Then we can create a secret by using below command.
- * $kubectl create secret generic azure-secret --from-literal=azurestorageaccountname=<...> --from-literal=azurestorageaccountkey=<...>
+  * $kubectl create secret generic azure-secret --from-literal=azurestorageaccountname=<...> --from-literal=azurestorageaccountkey=<...>
 
 This secret is later used to authenticate and mount the Azurefilestorage to the prometheus pod.
 
