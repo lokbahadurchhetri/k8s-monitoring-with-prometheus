@@ -20,8 +20,8 @@ In case of pod failure. A new pod will be created and the Azurefilestorage volum
 the new pod.
 
 Requirements:
-1. cifs-utils
-we can use the below command to install 'cifs-utils' in Ubuntu.
+1. cifs-utils.
+ we can use the below command to install 'cifs-utils' in Ubuntu.
  * $sudo apt-get install cifs-utils
 
 we will need a storage account in Azure in same region and subnet on which the k8s-cluster exist.
