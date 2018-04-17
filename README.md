@@ -9,4 +9,14 @@ You can find the full tutorial from below links :
 1.https://devopscube.com/setup-prometheus-monitoring-on-kubernetes
 2.http://blog.wercker.com/how-to-setup-alerts-on-prometheus
 
+Statefull Prometheus deployment:
+--------------------------------
+If prometheus is using local storage for scraped data, the data is lost when the pod gets killed.
+
+To avoid this we can add and use remote storage option. Here we have used a file storage from Azure
+and mounted it to the prometheus pod. The data scraped will then be loaded to Azurefilestorage.
+
+In case of pod failure. A new pod will be created and the Azurefilestorage volume will be mounted to
+the new pod.
+
 Note : The above code is still in progress. (The alert manager is yet to be configured)
