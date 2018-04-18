@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: alertmanager
+  namespace : monitoring  
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: prometheus-alertmanager
+    spec:
+      containers:
+      # Alertmanager server      
+      - name: alertmanager
+        image: quay.io/prometheus/alertmanager:v0.5.0
+        args:
+          - '-config.file=/etc/prometheus/alertmanager.yml'          
+        ports:
+        - name: alertmanager
+          containerPort: 9093
+        volumeMounts:
+        - name: config-volume-alertmanager
+          mountPath: /etc/prometheus
+        - name: alertmanager-data
+          mountPath: /alertmanager
+      volumes:
+      - name: config-volume-alertmanager
+        configMap:
+          name: prometheus-alertmanager
+      - name: alertmanager-data
+        emptyDir: {}
