@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prometheus-alertmanager
+  namespace : monitoring
+data:
+  alertmanager.yml: |-
+    global:
+      # The smarthost and SMTP sender used for mail notifications.
+      smtp_smarthost: 'smtp.gmail.com:587'
+      smtp_from: 'Alertmanager monitoringhomesource@gmail.com'
+      smtp_auth_username: 'monitoringhomesource@gmail.com'
+      smtp_auth_password: 'Motifworks@123'
+      smtp_require_tls: 'true'      
+    # The root route on which each incoming alert enters.
+    route:
+      group_by: 'alertname'
+      group_wait: 30s
+      group_interval: 5m
+      repeat_interval: 3h
+      receiver: 'Admin'
+    receivers:
+    - name: 'Admin'
+      email_configs:
+      - to: 'lokbahadur.chhetri@motifworks.com'      
+        from: 'global.smtp_from'
+        smtp_smarthost: 'global.smtp_smarthost'
+        auth_username: 'global.smtp_auth_username'
+        smtp_auth_password: 'global.smtp_auth_password'
+        smtp_require_tls: 'global.smtp_require_tls'
