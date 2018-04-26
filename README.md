@@ -35,7 +35,8 @@ Steps to Deploy Prometheus:
 1. Create a configmap for Prometheus "https://github.com/lokbahadurchhetri/k8s-monitoring-with-prometheus/blob/master/prometheus-config.yaml"                                                   
 2. Then Deploy Prometheus "https://github.com/lokbahadurchhetri/k8s-monitoring-with-prometheus/blob/master/prometheus-alertmanager-deployment.yaml"                                             
 3. Now Expose the Prometheus Deployment "https://github.com/lokbahadurchhetri/k8s-monitoring-with-prometheus/blob/master/prometheus-service.yaml"                                               
-4. Get the exposedip "Kubectl get svc -n monitoring" of prometheus svc and browse it to get to the Prometheus Dashboard.                                                                        
+4. Get the exposedip "Kubectl get svc -n monitoring" of prometheus svc and browse it to get to the Prometheus Dashboard. 
+5. Deploy alert.rules configmap "https://github.com/lokbahadurchhetri/k8s-monitoring-with-prometheus/blob/master/prometheus-alert-rules.yaml"
                                                                                                                                                                                                 
 Alertmanager configuration:                                                                                                                                                                     
 ---------------------------                                                                                                                                                                     
