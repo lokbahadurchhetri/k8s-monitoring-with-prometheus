@@ -53,4 +53,4 @@ Steps to Deploy AlertManager:
                                                                                                                                                                                                 
                                                                                                                                                                                                 
                                                                                                                                                                                                 
-Note : The above code is still in progress. (The alert manager is yet to be configured)                                                                                                         
+Note : The above Scripts are still in progress.                                                                                                          
