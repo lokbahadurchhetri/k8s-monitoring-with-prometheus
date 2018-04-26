@@ -8,24 +8,24 @@ data:
     global:
       # The smarthost and SMTP sender used for mail notifications.
       smtp_smarthost: 'smtp.gmail.com:25'
-      smtp_from: 'monitoringhomesource@gmail.com'
-      smtp_auth_username: 'monitoringhomesource@gmail.com'
-      smtp_auth_password: 'Motifworks@123'
+      smtp_from: 'xyz@gmail.com'
+      smtp_auth_username: 'xyz@gmail.com'
+      smtp_auth_password: 'password'
       smtp_require_tls: true  
     # The root route on which each incoming alert enters.
     route:
-      receiver: 'monitoringhomesource'
+      receiver: 'monitoring'
       group_by: ['alertname', 'cluster', 'service']
       group_wait: 30s
       group_interval: 5m
       repeat_interval: 3h
     receivers:
-    - name: 'monitoringhomesource'
+    - name: 'monitoring'
       email_configs:
       - send_resolved: true
-        to: 'monitoringhomesource@gmail.com'
-        from: 'monitoringhomesource@gmail.com'
+        to: 'xyz@gmail.com'
+        from: 'xyz@gmail.com'
         smarthost: 'smtp.gmail.com:25'
-        auth_username: 'monitoringhomesource@gmail.com'
-        auth_password: 'Motifworks@123'
+        auth_username: 'xyz@gmail.com'
+        auth_password: 'password'
         require_tls: true
