@@ -42,7 +42,8 @@ Alertmanager configuration:
 The Alertmanager handles alerts sent by client applications such as the Prometheus server. It takes care of deduplicating, grouping, and routing them to the correct receiver integration such a
 s email, PagerDuty, or OpsGenie. It also takes care of silencing and inhibition of alerts.                                                                                                      
                                                                                                                                                                                                 
-Steps to Deploy AlertManager:                                                                                                                                                                   
+Steps to Deploy AlertManager: 
+-----------------------------
 1. Use the following "https://github.com/lokbahadurchhetri/k8s-monitoring-with-prometheus/blob/master/alertmanager-config.yaml" for creating a configmap for alertmanager.                      
 2. Then use this link "https://github.com/lokbahadurchhetri/k8s-monitoring-with-prometheus/blob/master/alertmanager-deployment.yaml" to deploy Alertmanager.                                    
 3. Now we Expose the Alertmanager Deployment using kubectl "kubectl expose deployment alertmanager -n monitoring --type=LoadBalancer --name=alertmanager-svc"                                   
