@@ -21,7 +21,7 @@ spec:
           - '-storage.local.path=/mnt/azure/'
           - '-storage.local.memory-chunks=500000'
           - '-config.file=/etc/prometheus/prometheus.yml'
-          - '-alertmanager.url=http://52.232.243.7:9093'
+          - '-alertmanager.url=http://ExposedIP:9093'
         ports:
         - name: web
           containerPort: 9090
